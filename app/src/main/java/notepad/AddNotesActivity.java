@@ -56,7 +56,10 @@ public class AddNotesActivity extends AppCompatActivity {
 
                 Intent intent = new Intent();
                 intent.putExtra("title",text);
+                intent.putExtra("category",noteCategory);
+                intent.putExtra("description",description);
                 setResult(RESULT_OK,intent);
+                finish();
             }
         });
     }

@@ -14,13 +14,15 @@ import java.util.ArrayList;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
     ArrayList<Notes> notes;
+    NoteListener noteListener;
 
     public void addData(Notes note){
         notes.add(note);
         notifyItemInserted(notes.size());
     }
-    public NotesAdapter(ArrayList<Notes> notes) {
+    public NotesAdapter(ArrayList<Notes> notes, NoteListener noteListener) {
         this.notes = notes;
+        this.noteListener = noteListener;
     }
 
     @NonNull
@@ -56,6 +58,12 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             title.setText(notes.getTitle());
             category.setText(notes.getCategory());
             description.setText(notes.getDescription());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    noteListener.onNoteClick(notes);
+                }
+            });
         }
     }
 }
