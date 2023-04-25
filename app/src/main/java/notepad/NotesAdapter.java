@@ -64,6 +64,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
                     noteListener.onNoteClick(notes);
                 }
             });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    noteListener.onNoteDeletePress(notes);
+                    return false;
+                }
+            });
         }
     }
 }
