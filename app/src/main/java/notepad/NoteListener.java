@@ -1,7 +1,6 @@
 package notepad;
 
 public interface NoteListener {
-    void setNotes(Notes note);
 
     void onNoteClick(Notes note);
 

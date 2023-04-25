@@ -48,14 +48,11 @@ public class NotesActivity extends AppCompatActivity {
         btnAddNote = findViewById(R.id.btnAddNote);
       RecyclerView rv = findViewById(R.id.rv_notes);
       adapter = new NotesAdapter(notes, new NoteListener(){
-          @Override
-          public void setNotes(Notes note) {
-
-          }
 
           @Override
           public void onNoteClick(Notes note) {
               Intent intent = new Intent(NotesActivity.this, DetailView.class);
+              intent.putExtra("title", note.getTitle());
               startActivity(intent);
           }
 

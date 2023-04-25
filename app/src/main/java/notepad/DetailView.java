@@ -9,14 +9,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.demoapp.R;
 
 public class DetailView extends AppCompatActivity {
-    TextView title, description, category;
+    TextView Title, Description, Category;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String title = getIntent().getExtras().getString("tit");
         setContentView(R.layout.detail_view);
 
-        title = findViewById(R.id.tit);
-        category = findViewById(R.id.cat);
-        description = findViewById(R.id.des);
+        Title = findViewById(R.id.tit);
+        Category = findViewById(R.id.cat);
+        Description = findViewById(R.id.des);
+
+        Title.setText("Title is :" + title);
     }
 }
